@@ -8,21 +8,18 @@ export const useDarkMode =(key,initialValue)=> {
     const [value, setValue] = useLocalStorage(key, initialValue);
 
 
-    const handleChanges =(e) => {
-        setValue(e)
-    };
-
     useEffect(() => {
-        if(value === true) {
-            document.querySelector('body').classList.add('dark-mode')
+        if(value) {
+            document.body.classList.add('dark-mode')
         }else{
-            document.querySelector('body').classList.remove('dark-mode')
+            document.body.classList.remove('dark-mode')
         }
     },[value])
 
 
 
-    return [value, setValue, handleChanges]
+
+    return [value, setValue]
 
 
 }
